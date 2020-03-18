@@ -14,7 +14,7 @@ public class Texts {
     public void menuScreen()
     {
         System.out.println("1) Load in a member file.\n" +
-                "- Take the attendance.\n" +
+                "2) Take the attendance.\n" +
                 "- Save the attendance.\n" +
                 "- Load the attendance.\n" +
                 "- Add new member.\n" +
@@ -28,5 +28,19 @@ public class Texts {
     public void wrongMenuInput()
     {
         System.out.println("I don't understand. You can choose between options 1 and 0.");
+    }
+    public void notAddedToDatabase(String id)
+    {
+        System.out.println("ID " + id + " is already used. User was not added.");
+    }
+    public void addedToDatabase(String name)
+    {
+        System.out.println("Added " + name + " to the database.");
+    }
+    public void doesMemberAttended(String name)
+    {
+        System.out.println("Has " + name + " attended?\n" +
+                "Yes - press 1\n" +
+                "No  - press any other key");
     }
 }
