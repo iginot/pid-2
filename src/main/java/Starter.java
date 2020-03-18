@@ -7,12 +7,14 @@ public class Starter {
     DatabaseOfMembers databaseOfMembers;
     Keyboard commandKeyboard;
     Texts screenWriter;
+    Attendance attendanceManager;
 
     public Starter()
     {
         databaseOfMembers = new DatabaseOfMembers();
         commandKeyboard = new Keyboard();
         screenWriter = new Texts();
+        attendanceManager = new Attendance();
     }
 
     private void runtime() {
@@ -36,6 +38,12 @@ public class Starter {
         switch (inputFromUser) {
             case "1":
                 databaseOfMembers.addNewMembers();
+                return true;
+            case "2":
+                attendanceManager.takeAttendance(databaseOfMembers.getNames());
+                return true;
+            case "3":
+                attendanceManager.checkAttendance();
                 return true;
             case "0":
                 return false;

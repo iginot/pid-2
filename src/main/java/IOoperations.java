@@ -14,10 +14,7 @@ public class IOoperations {
 
         try (Reader reader = new FileReader("example-member-list.json")) {
 
-            // Convert JSON File to Java Object
             listFromTheFile = gson.fromJson(reader, ListOfNewMembers.class);
-            // print staff object
-            System.out.println(listFromTheFile);
 
         } catch (IOException e) {
             e.printStackTrace();

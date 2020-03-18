@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Purpose of this class is to host database of members and methods associated with it.
@@ -7,10 +8,12 @@ import java.util.HashMap;
 public class DatabaseOfMembers {
     private HashMap<String, String> databaseOfMembers;
     IOoperations ioManager;
+    Texts screenWriter;
 
     public DatabaseOfMembers(){
         databaseOfMembers = new HashMap<>();
         ioManager = new IOoperations();
+        screenWriter = new Texts();
     }
 
     public void addNewMembers()
@@ -21,17 +24,21 @@ public class DatabaseOfMembers {
         {
             String id = newMembersList[counter].getId();
             String name = newMembersList[counter].getName();
-            setDatabaseOfMembers(name, id);
+            if(databaseOfMembers.containsKey(id)){
+                screenWriter.notAddedToDatabase(id);
+            } else {
+                databaseOfMembers.put(id, name);
+                screenWriter.addedToDatabase(name);
+            }
         }
     }
-
-    public void setDatabaseOfMembers(String name, String ID){
-        if(databaseOfMembers.containsKey(ID)){
-            System.out.println("ID " + ID + "is already used. User was not added.");
-        } else {
-            databaseOfMembers.put(ID, name);
-            System.out.println("Added " + name + "to the database.");
+    public ArrayList<String> getNames()
+    {
+        ArrayList<String> allMemberNames = new ArrayList<>();
+        for (String key: databaseOfMembers.keySet()) {
+            allMemberNames.add(databaseOfMembers.get(key));
         }
+        return allMemberNames;
     }
 
 }
