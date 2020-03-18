@@ -8,21 +8,20 @@ import java.io.Reader;
 
 public class IOoperations {
 
-    public static void main(String[] args) {
-
+    public Member[] loadNewMembers(){
         Gson gson = new Gson();
-
-        ListOfMembers listFromTheFile = null;
+        ListOfNewMembers listFromTheFile = null;
 
         try (Reader reader = new FileReader("example-member-list.json")) {
 
             // Convert JSON File to Java Object
-            listFromTheFile = gson.fromJson(reader, ListOfMembers.class);
+            listFromTheFile = gson.fromJson(reader, ListOfNewMembers.class);
             // print staff object
             System.out.println(listFromTheFile);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return listFromTheFile.getMembers();
     }
 }
