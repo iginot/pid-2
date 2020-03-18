@@ -6,9 +6,23 @@ import java.util.HashMap;
 
 public class DatabaseOfMembers {
     private HashMap<String, String> databaseOfMembers;
+    IOoperations ioManager;
 
     public DatabaseOfMembers(){
         databaseOfMembers = new HashMap<>();
+        ioManager = new IOoperations();
+    }
+
+    public void addNewMembers()
+    {
+        Member[] newMembersList = ioManager.loadNewMembers();
+
+        for(int counter = 0; counter < newMembersList.length; counter++)
+        {
+            String id = newMembersList[counter].getId();
+            String name = newMembersList[counter].getName();
+            setDatabaseOfMembers(name, id);
+        }
     }
 
     public void setDatabaseOfMembers(String name, String ID){
