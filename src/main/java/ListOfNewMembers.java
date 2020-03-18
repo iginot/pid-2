@@ -1,6 +1,10 @@
+/**
+ * Purpose of this class is to host database of new members.
+ */
+
 import java.util.Arrays;
 
-public class ListOfMembers {
+public class ListOfNewMembers {
 
     private Member[] members;
 
@@ -9,16 +13,9 @@ public class ListOfMembers {
         return "members=" + "[" + Arrays.toString(members) + "]";
     }
 
-
-
-    public void test()
+    public Member[] getMembers()
     {
-        System.out.println("was here");
-    }
-
-    public void length()
-    {
-        System.out.println(members.length);
+        return members;
     }
 
 }
