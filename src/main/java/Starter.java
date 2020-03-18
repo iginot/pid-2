@@ -3,17 +3,51 @@
  */
 
 public class Starter {
+
+    DatabaseOfMembers databaseOfMembers;
+    Keyboard commandKeyboard;
+    Texts screenWriter;
+
+    public Starter()
+    {
+        databaseOfMembers = new DatabaseOfMembers();
+        commandKeyboard = new Keyboard();
+        screenWriter = new Texts();
+    }
+
+    private void runtime() {
+
+        boolean runtimeActive = true;
+        screenWriter.welcomeText();
+
+        while (runtimeActive) {
+            String userInput = commandKeyboard.getInput();
+            runtimeActive = processCommand(userInput);
+            if(runtimeActive) {
+                screenWriter.questionAfterCommand();
+                screenWriter.menuScreen();
+            } else {
+                screenWriter.exitScreen();
+            }
+        }
+    }
+
+    private boolean processCommand(String inputFromUser) {
+        switch (inputFromUser) {
+            case "1":
+                databaseOfMembers.addNewMembers();
+                return true;
+            case "0":
+                return false;
+            default:
+                screenWriter.wrongMenuInput();
+                return true;
+        }
+    }
+
     public static void main(String[] args) {
 
-        IOoperations app = new IOoperations();
-        DatabaseOfMembers databaseOfMembers = new DatabaseOfMembers();
-        Member[] newMembersList = app.loadNewMembers();
-
-        for(int counter = 0; counter < newMembersList.length; counter++)
-        {
-            String id = newMembersList[counter].getId();
-            String name = newMembersList[counter].getName();
-            databaseOfMembers.setDatabaseOfMembers(name, id);
-        }
+        Starter barApplication = new Starter();
+        barApplication.runtime();
     }
 }
