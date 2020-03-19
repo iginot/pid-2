@@ -5,8 +5,16 @@ import java.io.IOException;
 
 import java.io.FileReader;
 import java.io.Reader;
+import java.util.HashMap;
 
 public class IOoperations {
+
+    Texts screenWriter;
+
+    public IOoperations()
+    {
+        screenWriter = new Texts();
+    }
 
     public Member[] loadNewMembers(){
         Gson gson = new Gson();
@@ -17,8 +25,21 @@ public class IOoperations {
             listFromTheFile = gson.fromJson(reader, ListOfNewMembers.class);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            screenWriter.membersImportFailed();
         }
         return listFromTheFile.getMembers();
+    }
+
+    public void saveAttendance(HashMap<String, Boolean> attendanceSheet)
+    {
+        Gson gson = new Gson();
+        HashMap<String, Boolean> attendanceSheetToExport = attendanceSheet;
+
+        try (FileWriter writer = new FileWriter("attendance.json")) {
+            gson.toJson(attendanceSheetToExport, writer);
+            screenWriter.attendanceExportedSuccessfully();
+        } catch (IOException e) {
+            screenWriter.attendanceExportFailed();
+        }
     }
 }

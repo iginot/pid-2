@@ -45,6 +45,9 @@ public class Starter {
             case "3":
                 attendanceManager.checkAttendance();
                 return true;
+            case "4":
+                attendanceManager.attendanceExport();
+                return true;
             case "0":
                 return false;
             default:
