@@ -1,7 +1,9 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.HashMap;
 import java.util.ArrayList;
+
+/**
+ * Purpose of this class is to store the information about attendance and provide methods to read, modify, import and export.
+ */
 
 public class Attendance {
     private HashMap<String, Boolean> databaseOfAttendance;
@@ -49,6 +51,11 @@ public class Attendance {
     public void attendanceImport()
     {
         databaseOfAttendance = ioManager.loadAttendance();
+    }
+
+    public int attendanceDatabaseSize()
+    {
+        return databaseOfAttendance.size();
     }
 
 }
