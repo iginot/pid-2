@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 
@@ -5,11 +7,13 @@ public class Attendance {
     private HashMap<String, Boolean> databaseOfAttendance;
     Texts screenWriter;
     Keyboard commandKeyboard;
+    IOoperations ioManager;
 
     public Attendance() {
         databaseOfAttendance = new HashMap<>();
         screenWriter = new Texts();
         commandKeyboard = new Keyboard();
+        ioManager = new IOoperations();
     }
 
     public void takeAttendance(ArrayList<String> allMemberNames)
@@ -31,6 +35,11 @@ public class Attendance {
             System.out.println(key);
             System.out.println(databaseOfAttendance.get(key));
         }
+    }
+
+    public void attendanceExport()
+    {
+        ioManager.saveAttendance(databaseOfAttendance);
     }
 
 }

@@ -15,7 +15,8 @@ public class Texts {
     {
         System.out.println("1) Load in a member file.\n" +
                 "2) Take the attendance.\n" +
-                "- Save the attendance.\n" +
+                "3) View the attendance.\n" +
+                "4) Save the attendance.\n" +
                 "- Load the attendance.\n" +
                 "- Add new member.\n" +
                 "- Remove member.\n" +
@@ -27,7 +28,7 @@ public class Texts {
     }
     public void wrongMenuInput()
     {
-        System.out.println("I don't understand. You can choose between options 1 and 0.");
+        System.out.println("I don't understand. You can choose between options 1, 2, 3, 4 and 0.");
     }
     public void notAddedToDatabase(String id)
     {
@@ -43,4 +44,17 @@ public class Texts {
                 "Yes - press 1\n" +
                 "No  - press any other key");
     }
+    public void attendanceExportedSuccessfully()
+    {
+        System.out.println("Attendance was exported successfully.");
+    }
+    public void attendanceExportFailed()
+    {
+        System.out.println("Attendance export has failed.");
+    }
+    public void membersImportFailed()
+    {
+        System.out.println("Import of new members has failed.");
+    }
+
 }
