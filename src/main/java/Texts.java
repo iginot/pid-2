@@ -5,7 +5,8 @@
 public class Texts {
     public void welcomeText()
     {
-        System.out.println("Welcome!");
+        System.out.println("Welcome to the best application for taking attendance!\n" +
+                "You can choose from following options:");
         menuScreen();
     }
     public void questionAfterCommand(){
@@ -13,11 +14,11 @@ public class Texts {
     }
     public void menuScreen()
     {
-        System.out.println("1) Load in a member file.\n" +
+        System.out.println("1) Load the file of members.\n" +
                 "2) Take the attendance.\n" +
-                "3) View the attendance.\n" +
+                "3) Display the attendance.\n" +
                 "4) Save the attendance.\n" +
-                "- Load the attendance.\n" +
+                "5) Load and display the attendance.\n" +
                 "- Add new member.\n" +
                 "- Remove member.\n" +
                 "0) Quit");
@@ -28,7 +29,7 @@ public class Texts {
     }
     public void wrongMenuInput()
     {
-        System.out.println("I don't understand. You can choose between options 1, 2, 3, 4 and 0.");
+        System.out.println("I don't understand. You can choose between options 1, 2, 3, 4, 5 and 0.");
     }
     public void notAddedToDatabase(String id)
     {
@@ -36,7 +37,7 @@ public class Texts {
     }
     public void addedToDatabase(String name)
     {
-        System.out.println("Added " + name + " to the database.");
+        System.out.println(name + "has been added to the database.");
     }
     public void doesMemberAttended(String name)
     {
@@ -55,6 +56,26 @@ public class Texts {
     public void membersImportFailed()
     {
         System.out.println("Import of new members has failed.");
+    }
+    public void attendanceImportedSuccessfully()
+    {
+        System.out.println("Attendance was imported successfully.");
+    }
+    public void attendanceImportFailed()
+    {
+        System.out.println("Attendance import has failed.");
+    }
+    public void attendanceHeader()
+    {
+        System.out.println("status\t\t\tname");
+    }
+    public void attendedMember(String name)
+    {
+        System.out.println("attended\t\t" + name);
+    }
+    public void notAttendedMember(String name)
+    {
+        System.out.println("not attended\t" + name);
     }
 
 }

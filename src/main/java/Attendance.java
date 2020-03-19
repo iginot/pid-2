@@ -29,17 +29,26 @@ public class Attendance {
         }
     }
 
-    public void checkAttendance()
+    public void displayAttendance()
     {
+        screenWriter.attendanceHeader();
         for (String key: databaseOfAttendance.keySet()) {
-            System.out.println(key);
-            System.out.println(databaseOfAttendance.get(key));
+            if(databaseOfAttendance.get(key)) {
+                screenWriter.attendedMember(key);
+            } else {
+                screenWriter.notAttendedMember(key);
+            }
         }
     }
 
     public void attendanceExport()
     {
         ioManager.saveAttendance(databaseOfAttendance);
+    }
+
+    public void attendanceImport()
+    {
+        databaseOfAttendance = ioManager.loadAttendance();
     }
 
 }
