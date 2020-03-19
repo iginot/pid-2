@@ -25,7 +25,7 @@ public class DatabaseOfMembers {
             String id = newMembersList[counter].getId();
             String name = newMembersList[counter].getName();
             if(databaseOfMembers.containsKey(id)){
-                screenWriter.notAddedToDatabase(id);
+                screenWriter.notAddedToDatabase(id, name);
             } else {
                 databaseOfMembers.put(id, name);
                 screenWriter.addedToDatabase(name);

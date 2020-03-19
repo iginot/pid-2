@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Purpose of this class is to store the information about attendance and provide methods to read, modify, import and export.
@@ -29,6 +30,7 @@ public class Attendance {
             }
             databaseOfAttendance.put(name, attended);
         }
+        screenWriter.attendanceRecorded();
     }
 
     public void displayAttendance()
@@ -51,6 +53,7 @@ public class Attendance {
     public void attendanceImport()
     {
         databaseOfAttendance = ioManager.loadAttendance();
+        displayAttendance();
     }
 
     public int attendanceDatabaseSize()
