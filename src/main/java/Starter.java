@@ -43,10 +43,13 @@ public class Starter {
                 attendanceManager.takeAttendance(databaseOfMembers.getNames());
                 return true;
             case "3":
-                attendanceManager.checkAttendance();
+                attendanceManager.displayAttendance();
                 return true;
             case "4":
                 attendanceManager.attendanceExport();
+                return true;
+            case "5":
+                attendanceManager.attendanceImport();
                 return true;
             case "0":
                 return false;

@@ -2,7 +2,6 @@ import com.google.gson.Gson;
 
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
@@ -41,5 +40,21 @@ public class IOoperations {
         } catch (IOException e) {
             screenWriter.attendanceExportFailed();
         }
+    }
+
+    public HashMap<String, Boolean> loadAttendance()
+    {
+        Gson gson = new Gson();
+        HashMap<String, Boolean> loadedAttendance = new HashMap<>();
+
+        try (Reader reader = new FileReader("attendance.json")) {
+
+            loadedAttendance = gson.fromJson(reader, HashMap.class);
+            screenWriter.attendanceImportedSuccessfully();
+
+        } catch (IOException e) {
+            screenWriter.attendanceImportFailed();
+        }
+        return loadedAttendance;
     }
 }
