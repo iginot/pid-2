@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Purpose of this class is to store the information about attendance and provide methods to read, modify, import and export.
@@ -23,7 +22,7 @@ public class Attendance {
     {
         for (String name: allMemberNames) {
             boolean attended = false;
-            screenWriter.doesMemberAttended(name);
+            screenWriter.askIfMemberAttended(name);
             String userInput = commandKeyboard.getInput();
             if (userInput.equals("1")){
                 attended = true;

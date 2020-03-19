@@ -21,8 +21,6 @@ public class Texts {
                 "3) Display the attendance.\n" +
                 "4) Save the attendance to a file.\n" +
                 "5) Load and display the attendance.\n" +
-                "- Add new member.\n" +
-                "- Remove member.\n" +
                 "0) Quit");
     }
     public void exitScreen()
@@ -41,7 +39,7 @@ public class Texts {
     {
         System.out.println(name + " has been added to the database.");
     }
-    public void doesMemberAttended(String name)
+    public void askIfMemberAttended(String name)
     {
         System.out.println("Has " + name + " attended?\n" +
                 "Yes - press 1\n" +

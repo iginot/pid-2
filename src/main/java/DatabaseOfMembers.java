@@ -26,6 +26,8 @@ public class DatabaseOfMembers {
             String name = newMembersList[counter].getName();
             if(databaseOfMembers.containsKey(id)){
                 screenWriter.notAddedToDatabase(id, name);
+            } else if(name.equals(null)) {
+                System.out.println("name cannot be empty");
             } else {
                 databaseOfMembers.put(id, name);
                 screenWriter.addedToDatabase(name);

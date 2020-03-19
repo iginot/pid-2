@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -33,16 +31,4 @@ public class TestAttendance {
         int databaseSizeAfterDuplicateImport = attendanceManager.attendanceDatabaseSize();
         assertEquals(databaseSizeAfterDuplicateImport, databaseSizeBeforeDuplicateImport);
     }
-
-
-
-
-
-
-
-/*    @Test
-    public void testGettingFromEmptyDatabase(){
-        ArrayList<String> membersNames = databaseOfMembers.getNames();
-        assertEquals(0, membersNames.size());
-    }*/
 }
