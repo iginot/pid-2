@@ -6,6 +6,10 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
 
+/**
+ * Purpose of this class is to provide input-output operations with members or attendance lists.
+ */
+
 public class IOoperations {
 
     Texts screenWriter;
